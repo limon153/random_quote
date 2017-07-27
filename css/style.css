@@ -1,0 +1,78 @@
+html {
+  font-size: 14pt;
+}
+
+body {
+  --main-color: #6C5D6E;
+  background-color: var(--main-color);
+  color: var(--main-color);
+  transition: background-color 1s, color 1s;
+}
+
+.fa {
+  color: inherit;
+}
+
+.quote-box {
+  color: inherit;
+  font-size: 1.5rem;
+  width: 70%;
+  margin: 35px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+@media only screen and (min-width: 780px) {
+  .quote-box {
+    margin-top: 100px;
+    width: 30%;
+  }
+}
+
+.quote-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quote-author {
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons .fa {
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.buttons a {
+  text-decoration: none;
+}
+
+button {
+  padding: 8px;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  float: right;
+}
+
+.buttons a,
+.buttons button {
+  background-color: var(--main-color);
+  transition: opacity .3s, background-color 1s;
+}
+
+a:hover,
+button:hover {
+  opacity: 0.8;
+}
