@@ -1,4 +1,8 @@
 $().ready(function() {
+
+  var tweet = '';
+
+
   getNewQuote();
   $("#button").on("click", function(e) {
     e.preventDefault();
@@ -15,13 +19,20 @@ function randomColor() {
   return "#" + z1 + x;
 }
 
+function fetchJSON(data) {
+  $('#author').text(data.quoteAuthor);
+  $('#quote').html(data.quoteText);
+  tweet = '"' + data.quoteText + '" ' + data.quoteAuthor;
+  $('#tweet-btn').attr('href', 'https://twitter.com/intent/tweet?text=' + tweet);
+
+}
+
 function getNewQuote() {
   $.ajax( {
-    url: 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
-    success: function(data) {
-      $('#author').text(data[0].title);
-      $('#quote').html(data[0].content);
-    },
+    url: 'http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=fetchJSON',
+    type: "GET",
+    dataType: "jsonp",
+    crossDomain: true,
     cache: false
   });
 }
